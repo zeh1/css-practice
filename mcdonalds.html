@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        div.nav-container {
+            border: .5px solid lightgrey;
+        }
+        div.nav-container div.nav {
+            margin: 0 auto;
+            max-width: 1250px;
+            overflow: auto;
+            min-height: 129px;
+        }
+        div.nav-container div.nav > div.left {
+            float: left;
+        }
+        div.nav-container div.nav > div.right > div.bottom {
+            overflow: auto;
+            height: 79px;
+            padding-top: 35px;
+        }
+        div.nav-container div.nav > div.right > div.bottom li {
+            margin-right: 35px;
+        }
+        div.nav-container div.nav > div.right > div.top {
+            overflow: auto;
+            height: 50px;
+        }
+        div.nav-container div.nav > div.right > div.top > div.left {
+            float: left;
+            margin-top: 15px;
+        }
+        div.nav-container div.nav > div.right > div.top > div.right {
+            float: right;
+            margin-right: 35px;
+            margin-top: 7px;
+        }
+        div.nav-container div.nav > div.right > div.top > div.left li {
+            display: inline;
+            margin-right: 25px;
+        }
+        div.nav-container div.nav > div.right > div.top > div.right li {
+            display: inline;
+            margin-right: 25px;
+        }
+        div.nav-container div.nav > div.right > div.bottom li {
+            display: inline;
+        }
+        div.nav button {
+            padding: 10px;
+            width: 120px;
+            margin-left: 15px;
+            border: none;
+            outline: none;
+            background: #ffbc0d;
+            border-radius: 5px;
+        }
+
+
+
+        div.nav-container-mobile {
+            display: none;
+            border: .5px solid lightgrey;
+        }
+        div.nav-container-mobile img {
+            width: 50px;
+        }
+        div.nav-container-mobile div.nav {
+            overflow: auto;
+        }
+        div.nav-container-mobile div.nav div.left {
+            float: left;
+        }
+        div.nav-container-mobile div.nav div.right {
+            float: right;
+        }
+        div.nav-container-mobile div.label {
+            display: inline-block;
+            position: relative;
+            bottom: 15px;
+            left: 10px;
+            cursor: default;
+        }
+        div.nav-container-mobile button {
+            position: relative;
+            right: 20px;
+            top: 8px;
+        }
+        
+
+
+        div.mobile-menu-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: white;
+            z-index: 999;
+            overflow-y: scroll;
+        }
+        div.mobile-menu-container div.nav {
+            overflow: auto;
+        }
+        div.mobile-menu-container div.nav div.left {
+            float: left;
+        }
+        div.mobile-menu-container div.nav div.right {
+            float: right;
+            font-size: 20px;
+            position: relative;
+            top: 15px;
+            right: 15px;
+            cursor: default;
+        }
+        div.mobile-menu-container img {
+            width: 50px;
+        }
+        div.mobile-menu-container li {
+            list-style-type: none;
+            margin-bottom: 35px;
+        }
+        div.mobile-menu-container hr {
+            margin-bottom: 35px;
+        }
+        #plus {
+            float: right;
+            font-size: 35px;
+            position: relative;
+            bottom: 10px;
+            right: 10px;
+            cursor: default;
+        }
+        div.mobile-menu-container ul ul {
+            height: 0;
+            overflow: hidden;
+            transition: height .5s ease;
+        }
+
+
+
+        li {
+            cursor: default;
+            -webkit-user-select: none;
+        }
+        #ourmenu {
+            position: relative;
+        }
+        div.ourmenu {
+            position: absolute;
+            border: .5px solid lightgrey;
+            top: 130px;
+            left: 0;
+            width: 100vw;
+            height: 400px;
+            display: none;
+            background: white;
+            z-index: 3;
+        }
+        div.ourmenu div.top {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 65%;
+            align-items: center;
+            margin-top: 40px;
+            max-width: 1250px;
+            margin: 0 auto;
+            margin-top: 35px;
+        }
+        div.ourmenu div.top div {
+            margin-bottom: 30px;
+        }
+        div.ourmenu div.bottom {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+
+
+        div.hero-container {
+            margin-top: 35px;
+        }
+        div.hero-container div.hero {
+            max-width: 1250px;
+            margin: 0 auto;
+            position: relative;
+        }
+        div.hero-container div.hero img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        div.hero-container div.hero div.image {
+            text-align: center;
+        }
+        div.hero-container div.hero div.card {
+            position: absolute;
+            width: 385px;
+            height: 350px;
+            border-radius: 5px;
+            background: white;
+            left: 60px;
+            top: 150px;
+            padding: 20px;
+        }
+        div.hero-container div.hero p {
+            line-height: 23px;
+        }
+        div.hero-container div.hero h2 {
+            margin-bottom: 5px;
+        }
+        div.hero-container div.hero button {
+            position: relative;
+            top: 15px;
+            padding: 15px;
+            border: none;
+            outline: none;
+            background: #ffbc0d;
+            border-radius: 5px;
+        }
+
+
+
+        div.hero-container-mobile {
+            display: none;
+            margin-top: 35px;
+        }
+        div.hero-container-mobile div.hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            width: 90vw;
+            margin: 0 auto;
+            border: .5px solid lightgrey;
+            border-radius: 5px;
+        }
+        div.hero-container-mobile div.card {
+            order: 2;
+            padding: 15px;
+        }
+        div.hero-container-mobile div.image {
+            text-align: center;
+        }
+        div.hero-container-mobile img {
+            max-width: 100%;
+        }
+        div.hero-container-mobile p {
+            line-height: 25px;
+        }
+        div.hero-container-mobile h2 {
+            margin-bottom: 5px;
+        }
+        div.hero-container-mobile button {
+            margin-top: 5px;
+            padding: 15px;
+            border: none;
+            outline: none;
+            background: #ffbc0d;
+            border-radius: 5px;
+        }
+
+
+
+        div.order-now-container {
+            margin-top: 85px;
+        }
+        div.order-now {
+            display: flex;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        div.order-now div.card {
+            flex-basis: 30%;
+            padding: 25px;
+            align-self: center;
+        }
+        div.order-now div.card p {
+            line-height: 25px;
+        }
+        div.order-now h2 {
+            margin-bottom: 25px;
+        }
+        div.order-now div.image {
+            flex-basis: 70%;
+        }
+        div.order-now button {
+            padding: 15px;
+            margin-top: 25px;
+            border: none;
+            outline: none;
+            background: #ffbc0d;
+            border-radius: 5px;
+        }
+        div.order-now img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+
+
+        div.free-fries-container {
+            margin-top: 70px;
+        }
+        div.free-fries {
+            display: flex;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        div.free-fries div.image {
+            flex-basis: 70%;
+        }
+        div.free-fries div.card {
+            flex-basis: 30%;
+            padding: 35px;
+            align-self: center;
+        }
+        div.free-fries img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        div.free-fries h2 {
+            margin-bottom: 25px;
+        }
+        div.free-fries p {
+            line-height: 25px;
+        }
+        div.free-fries button {
+            padding: 15px;
+            margin-top: 25px;
+            border: none;
+            outline: none;
+            background: #ffbc0d;
+            border-radius: 5px;
+        }
+
+
+
+        #highlight, .highlight {
+            color: #e8ae17;
+        }
+
+
+
+        div.apply-now-container {
+            margin-top: 60px;
+        }
+        div.apply-now {
+            display: flex;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        div.apply-now img {
+            border-radius: 5px;
+            width: 100%;
+        }
+        div.apply-now div.image {
+            flex-basis: 70%;
+        }
+        div.apply-now div.card {
+            flex-basis: 30%;
+            padding: 30px;
+        }
+        div.apply-now h2 {
+            line-height: 35px;
+        }
+        div.apply-now p {
+            line-height: 22px;
+        }
+        div.apply-now button {
+            padding: 15px;
+            margin-top: 25px;
+            border: none;
+            outline: none;
+            background: #ffbc0d;
+            border-radius: 5px;
+        }
+
+
+
+        div.float-container {
+            margin-top: 60px;
+            overflow: auto;
+        }
+        div.floats {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        div.floats div {
+            float: left;
+            width: 30%;
+            margin: 0 15px;
+        }
+        div.floats img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        div.floats h1 {
+            margin-bottom: 15px;
+        }
+        div.floats p {
+            line-height: 25px;
+        }
+        div.floats button {
+            padding: 15px;
+            margin-top: 25px;
+            border: none;
+            outline: none;
+            background: #ffbc0d;
+            border-radius: 5px;
+        }
+
+
+
+        div.footer-container {  
+            margin-top: 65px;
+            overflow: auto;
+            padding-bottom: 65px;
+        }
+        div.footer {
+            background: lightgreen;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        div.footer ul {
+            float: left;
+        }
+        div.footer li {
+            list-style: none;
+            line-height: 25px;
+        }
+
+
+
+        @media screen and (max-width: 1000px) {
+            div.nav-container {
+                display: none;
+            }
+            div.nav-container-mobile {
+                display: block;
+            }
+            div.nav button {
+                margin-left: 0;
+            }
+        }
+        @media screen and (max-width: 1265px) {
+            div.hero-container {
+                display: none;
+            }
+            div.hero-container-mobile {
+                display: block;
+            }
+            div.order-now {
+                flex-direction: column;
+                max-width: 85vw;
+                border: .5px solid lightgrey;
+                border-radius: 5px;
+            }
+            div.order-now div.card {
+                align-self: flex-start;
+                padding: 30px;
+            }
+            div.order-now-container {
+                margin-top: 50px;
+            }
+            div.free-fries {
+                flex-direction: column;
+                max-width: 85vw;
+                border: .5px solid lightgrey;
+                border-radius: 5px;
+            }
+            div.free-fries div.card {
+                order: 2;
+                align-self: flex-start;
+            }
+            div.apply-now {
+                flex-direction: column;
+                max-width: 85vw;
+                border: .5px solid lightgrey;
+            }
+            div.floats {
+                max-width: 85vw;
+            }
+            div.floats div {
+                float: none;
+                width: 100%;
+                margin: unset;
+                margin-bottom: 35px;
+            }
+            div.footer-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-container">
+        <div class="nav">
+            <div class="left"><img src="https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg" alt=""></div>
+            <div class="right">
+
+                <div class="top">
+                    <div class="left">
+                        <ul>
+                            <li>Language</li>
+                            <li>Sign Up for Email</li>
+                            <li>Careers</li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <ul>
+                            <li>Search</li>
+                            <li>Change Your Location</li>
+                            <button>Order Now</button>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bottom">
+                    <ul id="ourmenu">
+                        <li id="ourmenuclick" state="closed" class="highlight">Our Menu</li>
+                        <li>McCafe</li>
+                        <li>About Our Food</li>
+                        <li>Deals & Our App</li>
+                        <li>Trending Now</li>
+                        <li>Locate</li>
+                    </ul>
+                    <div class="ourmenu">
+                        <div class="top">
+                            <div>Beverages</div>
+                            <div>Breakfast</div>
+                            <div>Burgers</div>
+                            <div>Chicken & Sandwhiches</div>
+                            <div>Combo Meal</div>
+                            <div>Desserts & Shakes</div>
+                            <div>Happy Meal</div>
+                            <div>McCafe Drinks</div>
+                            <div>McCafe Bakery</div>
+                            <div>Snacks & Sides</div>
+                        </div>
+                        <div class="bottom">
+                            <button>View Full Menu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-container-mobile">
+        <div class="nav">
+            <div class="left">
+                <img src="https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg" alt="">
+                <div class="label highlight" id="open">Menu</div>
+            </div>
+            <div class="right"><button>Order Now</button></div>
+        </div>
+    </div>
+
+    <div class="mobile-menu-container">
+        <div class="mobile-menu">
+            <div class="nav">
+                <div class="left"><img src="https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg" alt=""></div>
+                <div class="right" id="close">X</div>
+            </div>
+            <hr>
+            <div class="main">
+                <ul>
+                    <li>Home</li>
+                    <li id="highlight">Our Menu <span id="plus">+</span></li>
+                    <ul id="accordion" state="closed">
+                        <li>Beverages</li>
+                        <li>Breakfast</li>
+                        <li>Burgers</li>
+                        <li>Chicken & Sandwiches</li>
+                        <li>Combo Meal</li>
+                        <li>Desserts & Shakes</li>
+                        <li>Happy Meal</li>
+                        <li>McCafe Drinks</li>
+                        <li>McCafe Bakery</li>
+                        <li>Snacks & Sides</li>
+                    </ul>
+                    <li>McCafe</li>
+                    <li>About Our Food</li>
+                    <li>Deals & Our App</li>
+                    <li>Trending Now</li>
+                    <li>Locate</li>
+                </ul>
+                <hr>
+                <ul>
+                    <li>Search</li>
+                    <li>Change Your Location</li>
+                </ul>
+                <hr>
+                <ul>
+                    <li>Sign Up for Email</li>
+                    <li>Careers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-container">
+        <div class="hero">
+            <div class="card">
+                <h2>Just Released: The J Balvin Meal</h1>
+                <p>J’s meal features all of his favorites—a Big Mac®, Medium Fries and an OREO® McFlurry®. Get the J Balvin Meal through the offer in our App and the OREO® McFlurry® is free.*</p>
+                <button>Order in the App</button>
+            </div>
+            <div class="image">
+                <img src="https://www.mcdonalds.com/is/image/content/dam/usa/nfl/assets/carousel/Carousel_Desktop_HP_1168x520_v1.jpg?$Hero_Desktop$" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-container-mobile">
+        <div class="hero">
+            <div class="card">
+                <h2>Just Released: The J Balvin Meal</h1>
+                <p>J’s meal features all of his favorites—a Big Mac®, Medium Fries and an OREO® McFlurry®. Get the J Balvin Meal through the offer in our App and the OREO® McFlurry® is free.*</p>
+                <button>Order in the App</button>
+            </div>
+            <div class="image">
+                <img src="https://www.mcdonalds.com/is/image/content/dam/usa/nfl/assets/carousel/Carousel_Desktop_HP_1168x520_v1.jpg?$Hero_Desktop$" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="order-now-container">
+        <div class="order-now">
+            <div class="image">
+                <img src="https://www.mcdonalds.com/is/image/content/dam/usa/nfl/assets/images/One_Pub_Desktop_McDelivery_1168x520.jpg?$Publication_Two_Column_Desktop$" alt="">
+            </div>
+            <div class="card">
+                <h2>Order McDelivery Now</h2>
+                <p>Get all your McDonald’s favorites delivered right to your doorstep with McDelivery® on Uber Eats or DoorDash.</p>
+                <button>Order McDelivery Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="free-fries-container">
+        <div class="free-fries">
+            <div class="card">
+                <h2>Free Fries on Fry Day</h2>
+                <p>Get free medium Fries every Friday, exclusively with Mobile Order & Pay with any min. $1 purchase.*</p>
+                <button>Use the App to Order</button>
+            </div>
+            <div class="image">
+                <img src="https://www.mcdonalds.com/is/image/content/dam/usa/nfl/assets/images/One_Pub_FFF_1168x520.jpg?$Publication_Two_Column_Desktop$" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="apply-now-container">
+        <div class="apply-now">
+            <div class="image"><img src="https://www.mcdonalds.com/is/image/content/dam/usa/nfl/assets/images/McD_homepage_HACERModule_Desktop.jpg?$Publication_Two_Column_Desktop$" alt=""></div>
+            <div class="card">
+                <h2>Apply Now to the McDonald's HACER National Scholarship</h2>
+                <p>Check out our resources, as well as our new McDonald’s® HACER® Education Tour, our livestream workshops, to help guide parents, teachers and counselors and help students HACER® Más. Learn more about HACER® and apply today.</p>
+                <button>Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="float-container">
+        <div class="floats">
+            <div>
+                <img src="https://www.mcdonalds.com/is/image/content/dam/usa/nfl/assets/images/Three_Desktop_Safety_376x252.jpg?$Publication_Three_Column_Desktop$" alt="">
+                <h1>Contactless Mobile Order & Pay</h1>
+                <p>Pick up your order. Select Drive Thru pick up and tell use your order code at the speaker.</p>
+                <button>User App to Order</button>
+            </div>
+            <div>
+                <img src="https://www.mcdonalds.com/is/image/content/dam/usa/nfl/assets/images/Three_Pub_Mccafe_574x384.jpg?$Publication_Three_Column_Desktop$" alt="">
+                <h1>McCafe Rewards</h1>
+                <p>Download our App to earn rewards and access deals on McCafé drinks.</p>
+                <button>Get the App to Earn Rewards</button>
+            </div>
+            <div>
+                <img src="https://www.mcdonalds.com/is/image/content/dam/usa/nfl/assets/images/Three_Pub_Join_376x252.jpg?$Publication_Three_Column_Desktop$" alt="">
+                <h1>Join Our Email List</h1>
+                <p>Get news, promotions and more delivered right to your inbox.</p>
+                <button>Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <div class="footer">
+            <ul>
+                <li>About Us</li>
+                <li>Our History</li>
+                <li>Leadership Team</li>
+                <li>Values In Action</li>
+                <li>Investor Relations</li>
+                <li>News & Notifications</li>
+                <li>Franchise Info</li>
+                <li>Real Estate</li>
+                <li>Recalls & Alerts</li>
+                <li>Digital Accessibility</li>
+                <li>Our Food, Your Questions</li>
+            </ul>
+            <ul>
+                <li>Careers</li>
+                <li>Education Opportunities</li>
+                <li>Employee Perks</li>
+                <li>Meet Our People: Staff & Management</li>
+                <li>Working with Us</li>
+                <li>Apply Now</li>
+            </ul>
+            <ul>
+                <li>Services</li>
+                <li>Wi-Fi</li>
+                <li>Arch Card</li>
+                <li>PlayPlaces & Parties</li>
+                <li>McDelivery</li>
+                <li>Mobile Order & Pay</li>
+                <li>Download App</li>
+                <li>McDonald's Merchandise</li>
+                <li>Family Fun Hub</li>
+            </ul>
+            <ul>
+                <li>Community</li>
+                <li>HACER Scholarships for Hispanic Students</li>
+                <li>Ronald McDonald House Charities</li>
+                <li>McDonald's APA</li>
+                <li>McDonald's International</li>
+                <li>Black & Positively Golden</li>
+            </ul>
+            <ul>
+                <li>Contact Us</li>
+                <li>Arch Card</li>
+                <li>Donations</li>
+                <li>Employment</li>
+                <li>Mobile App Feedback</li>
+                <li>Restaurant Feedback</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var label = document.querySelector('#open');
+        var closee = document.querySelector('#close');
+        var menu = document.querySelector('.mobile-menu-container');
+        label.onclick = function() {
+            menu.style.display = 'block';
+        }
+        closee.onclick = function() {
+            menu.style.display = 'none';
+        }
+
+        var plus = document.querySelector('#plus');
+        var accordion = document.querySelector('#accordion')
+        plus.onclick = function() {
+            console.log(5);
+            if (accordion.getAttribute('state') == 'closed') {
+                accordion.style.height = "500px";
+                accordion.style.marginBottom = "35px";
+                accordion.setAttribute('state', 'open');
+            } else {
+                accordion.style.height = "0px";
+                accordion.style.marginBottom = "0px";
+                accordion.setAttribute('state', 'closed');
+            }
+        }
+
+        var ourmenuclick = document.querySelector('#ourmenuclick');
+        var ourmenu = document.querySelector('.ourmenu');
+        ourmenuclick.onclick = function() {
+            if (ourmenuclick.getAttribute('state') == 'closed') {
+                ourmenu.style.display = 'block';
+                ourmenuclick.setAttribute('state', 'open');
+            } else {
+                ourmenu.style.display = 'none';
+                ourmenuclick.setAttribute('state', 'closed');
+            }
+        }
+    </script>
+
+</body>
+</html>

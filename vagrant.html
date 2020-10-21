@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+        body {
+            min-height: 150vh;
+            font-family: sans-serif;
+        }
+
+        div.top-nav-container {
+            background: black;
+            color: white;
+        }
+        div.top-nav {
+            max-width: 1500px;
+            margin: 0 auto;
+            overflow: auto;
+            padding: 10px;
+            background: black;
+        }
+        div.top-nav div.left {
+            float: left;
+            margin-left: 60px;
+            cursor: default;
+        }
+        div.top-nav div.right span {
+            transition: color .25s ease;
+        }
+        div.top-nav div.right span:hover {
+            color: lightgrey;
+        }
+        div.top-nav div.right {
+            float: right;
+            margin-right: 60px;
+            cursor: default;
+        }
+
+
+
+        div.main-nav-container {
+            background: white;
+            position: sticky;
+            top: 0;
+            border: .5px solid lightgrey;
+        }
+        div.main-nav {
+            max-width: 1500px;
+            background: white;
+            overflow: auto;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+        div.main-nav div.left {
+            float: left;
+            margin-left: 60px;
+            padding: 8px;
+        }
+        div.main-nav div.left span {
+            display: inline-block;
+            padding: 11px;
+        }
+        div.main-nav div.right {
+            float: right;
+            margin-right: 60px;
+        }
+        div.main-nav div.right ul {
+            display: inline-block;
+            padding: 11px;
+        }
+        div.main-nav li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+        div.main-nav button {
+            margin-right: 15px;
+            padding: 11px;
+            width: 125px;
+            outline: none;
+        }
+        div.main-nav button:last-of-type {
+            background: #1563ff;
+            color: white;
+            border: none;
+            transition: background-color .25s ease;
+        }
+        div.main-nav button:last-of-type:hover {
+            background-color: #0a4ccf;
+        }
+        div.main-nav button:first-of-type {
+            border: .5px solid lightgrey;
+            background: white;
+            transition: background-color .25s ease;
+        }
+        div.main-nav button:first-of-type:hover {
+            background-color: lightgrey;
+        }
+
+
+
+        div.main-nav div.right-hidden {
+            display: none;
+            position: relative;
+            float: right;
+            top: 19px;
+            right: 55px;
+        }
+        div.main-nav div.right-hidden div.menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            z-index: 999;
+            background: white;
+            padding: 10px;
+            opacity: .99;
+            border-radius: 5px;
+        }
+        div.main-nav div.right-hidden div.label:hover + div.menu, div.main-nav div.right-hidden div.menu:hover {
+            display: block;
+        }
+        div.main-nav div.right-hidden div.menu li {
+            display: block;
+            padding: 10px;
+        }
+        div.main-nav div.right-hidden div.menu button {
+            width: 275px;
+        }
+        a {
+            text-decoration: none;
+            color: grey;
+            transition: color .25s ease;
+        }
+        a:hover {
+            color: darkgrey;
+        }
+
+
+
+        div.hero {
+            max-width: 1500px;
+            text-align: center;
+            margin: 150px auto 0 auto;
+        }
+        div.hero img {
+            width: 400px;
+        }
+        div.hero-container {
+            border: .5px solid lightgrey;
+            height: 610px;
+        }
+        div.hero button {
+            padding: 12px;
+            border: .5px solid lightgrey;
+        }
+        div.hero button:first-of-type {
+            background: #1563ff;
+            color: white;
+            transition: background-color .25s ease;
+        }
+        div.hero button:first-of-type:hover {
+            background-color: #0a4ccf;
+        }
+        div.hero button:nth-of-type(2), div.hero button:last-of-type {
+            background: white;
+            border: .5px solid lightgrey;
+            transition: background-color .25s ease;
+        }
+        div.hero button:nth-of-type(2):hover, div.hero button:last-of-type:hover {
+            background-color: lightgrey;
+        }
+        div.hero div.button-container {
+            margin-top: 40px;
+        }
+        div.hero h2 {
+            margin-top: 30px;
+        }
+
+
+
+        div.unified-workflow-container {
+            min-height: 450px;
+            background: #1563ff;
+            overflow: auto;
+        }
+        div.unified-workflow {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+        div.unified-workflow div.right {
+            width: 40%;
+            overflow: scroll;
+            float: right;
+            background: black;
+            margin-right: 45px;
+        }
+        div.unified-workflow div.left {
+            width: 50%;
+            float: left;
+            color: white;
+            margin-left: 45px;
+        }
+        div.unified-workflow p {
+            line-height: 27px;
+        }
+        div.unified-workflow h1 {
+            padding: 0 0 17px 0;
+        }
+        div.unified-workflow pre {
+            color: white;
+            padding: 5px;
+        }
+        div.unified-workflow div {
+            margin-top: 110px;
+        }
+
+
+
+        div.production-parity {
+            max-width: 1500px;
+            min-height: 450px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            overflow: auto;
+        }
+        div.production-parity img {
+            width: 300px;
+        }
+        div.production-parity div {
+            flex-basis: 50%;
+            text-align: center;
+        }
+        div.production-parity div.left {
+            text-align: left;
+            order: 2;
+            margin-right: 35px;
+        }
+        div.production-parity div.left h1 {
+            margin-bottom: 17px;
+        }
+        div.production-parity div.left p {
+            line-height: 25px;
+        }
+
+
+
+        div.cross-platform-container {
+            background: #0a4ccf;
+        }
+        div.cross-platform {
+            display: flex;
+            min-height: 400px;
+            overflow: auto;
+            align-items: center;
+            background: #0a4ccf;
+            color: white;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+        div.cross-platform div {
+            flex-basis: 50%;
+            margin-left: 50px;
+            line-height: 25px;
+        }
+        div.cross-platform h1 {
+            margin-bottom: 20px;
+        }
+
+
+
+        div.trusted-by-container {
+            background: black;
+        }
+        div.trusted-by {
+            background: black;
+            color: white;
+            text-align: center;
+            max-width: 1500px;
+            margin: 0 auto;
+            overflow: auto;
+            min-height: 350px;
+        }
+        div.trusted-by img {
+            max-width: 70%;
+        }
+        div.trusted-by div.top {
+            text-align: left;
+            line-height: 25px;
+            margin-left: 45px;
+            margin-bottom: 50px;
+            margin-right: 45px;
+        }
+        div.trusted-by div.top h1 {
+            padding-top: 50px;
+            padding-bottom: 25px;
+        }
+        div.trusted-by div.bottom {
+            margin-bottom: 80px;
+        }
+    
+
+
+        @media screen and (max-width: 917px) {
+            div.top-nav-container div.right, div.main-nav div.right {
+                display: none;
+            }
+            div.main-nav div.right-hidden {
+                display: block;
+            }
+            div.main-nav {
+                overflow: visible;
+                height: 59px;
+            }
+            div.unified-workflow div.right {
+                width: 90%;
+                margin-bottom: 100px;
+            }
+            div.unified-workflow div.left {
+                width: 90%;
+            }
+            div.unified-workflow div {
+                margin-top: 70px;
+            }
+            div.production-parity {
+                flex-direction: column;
+            }
+            div.production-parity div {
+                flex-basis: 100%;
+                padding: 40px;
+            }
+            div.production-parity div.right {
+                order: 2;
+                padding-bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-nav-container">
+        <div class="top-nav">
+            <div class="left">
+                HashiCorp
+            </div>
+            <div class="right">
+                <span>Learn how Vagrant fits into the HashiCorp Stack</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-nav-container">
+        <div class="main-nav">
+            <div class="left">
+                <span>Vagrant</span>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="">Intro</a></li>
+                    <li><a href="">Docs</a></li>
+                    <li><a href="">VMware</a></li>
+                    <li><a href="">Community</a></li>
+                </ul>
+                <ul>
+                    <button>20.7k</button>
+                    <button>Download</button>
+                </ul>
+            </div>
+            <div class="right-hidden">
+                <div class="label">Menu</div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="">Intro</a></li>
+                        <li><a href="">Docs</a></li>
+                        <li><a href="">VMware</a></li>
+                        <li><a href="">Community</a></li>
+                    </ul>
+                    <ul>
+                        <button>20.7k</button>
+                        <button>Download</button>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-container">
+        <div class="hero">
+            <img src="https://www.vagrantup.com/img/logo-hashicorp.svg" alt="">
+            <h2>Development Environments Made Easy</h3>
+            <div class="button-container">
+                <button>Get Started</button>
+                <button>Download 2.2.10</button>
+                <button>Find Boxes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="unified-workflow-container">
+        <div class="unified-workflow">
+            <div class="left">
+                <h1>Simple and Powerful</h1>
+                <p>HashiCorp Vagrant provides the same, easy workflow regardless of your role as a developer, operator, or designer. It leverages a declarative configuration file which describes all your software requirements, packages, operating system configuration, users, and more.</p>
+            </div>
+            <div class="right">
+                <code>
+                    <pre>
+    $ vagrant init hashicorp/bionic64
+    $ vagrant up
+        Bringing machine 'default' up with 'virtualbox' provider...
+        ==> default: Importing base box 'hashicorp/bionic64'...
+        ==> default: Forwarding ports...
+        default: 22 (guest)
+        => 2222 (host) (adapter 1)
+        ==> default: Waiting for machine to boot...
+    $ vagrant ssh
+        vagrant@bionic64:~$ _
+                    </pre>
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <div class="production-parity-container">
+        <div class="production-parity">
+            <div class="left">
+                <h1>Production Parity</h1>
+                <p>The cost of fixing a bug exponentially increases the closer it gets to production. Vagrant aims to mirror production environments by providing the same operating system, packages, users, and configurations, all while giving users the flexibility to use their favorite editor, IDE, and browser. Vagrant also integrates with your existing configuration management tooling like Ansible, Chef, Docker, Puppet or Salt, so you can use the same scripts to configure Vagrant as production.</p>
+            </div>
+            <div class="right">
+                <img src="https://www.vagrantup.com/img/parity.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="cross-platform-container">
+        <div class="cross-platform">
+            <div class="left">
+                <h1>Works where you work</h1>
+                <p>Vagrant works on Mac, Linux, Windows, and more. Remote development environments force users to give up their favorite editors and programs. Vagrant works on your local system with the tools you're already familiar with. Easily code in your favorite text editor, edit images in your favorite manipulation program, and debug using your favorite tools, all from the comfort of your local laptop.</p>
+            </div>
+            <div class="right">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="trusted-by-container">
+        <div class="trusted-by">
+            <div class="top">
+                <h1>Trusted By</h1>
+                <p>Vagrant is trusted by thousands of developers, operators, and designers everyday. Here are just a few of the organizations that choose Vagrant to automate their development environments, in lightweight and reproducible ways.</p>
+            </div>
+            <div class="bottom">
+                <img src="https://www.vagrantup.com/img/customers.png" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        /*
+        var label = document.querySelector(".label")
+        var menu = document.querySelector(".menu")
+        label.onclick = function() {
+            var state = menu.style.display
+            if (state == "block") {
+                menu.style.display = "none"
+            } else {
+                menu.style.display = "block"
+            }
+        }
+        */
+    </script>
+</body>
+</html>
